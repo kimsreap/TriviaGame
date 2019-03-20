@@ -1,0 +1,29 @@
+body{
+    background-color: #124747;
+}
+#container {
+    margin: 5% 15% 10% 15%;
+    width: 800px;
+    height: 500px;
+    line-height: 50px;
+    color: aliceblue;
+}
+.play {
+    font-size: 25pt;
+}
+
+p {
+    font-size: 18pt;
+   
+}
+.choices {
+    text-align: left;
+    font-size: 16pt;
+ 
+}
+
+.timer {
+    text-align: left;
+    font-size: 20pt;
+ 
+}

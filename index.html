@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="asset/css/reset.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+<div id="container">
+        <div class="play">Play Game</div>
+        <p>U.S Naturalization Preparation</p>
+        <div class="game" style="display: none">
+            <div class="question"></div>
+            <div class="choices">
+                <div id="answer" class="A" onclick="checkAnswer('A')"></div>
+                <div id="answer" class="B" onclick="checkAnswer('B')"></div>
+                <div id="answer" class="C" onclick="checkAnswer('C')"></div>
+            </div>
+            <ul>Time Remaining:</ul>
+           <div class="timer">
+                <div class="counter"></div>
+                <div class="btimeGauge"></div>
+                <div class="timeRun"></div>
+            </div>
+            <div class="progress"></div>
+        </div>
+        <div class="scoreDiv" style="display: none"></div>
+    </div>
+
+
+    <script src="asset/javascript/app.js"></script>
+</body>
+</html>
