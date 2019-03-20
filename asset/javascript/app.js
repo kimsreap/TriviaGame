@@ -51,7 +51,59 @@ play.addEventListener("click",startQuiz);
 
 
 function startQuiz(){
-    play.style.display = "none";
+    renderQuestion();
+    renderProgress();
+    renderQuest();
+    TIMER = setInterval(renderQuest,1000);
+
+}
+
+function renderProgress(){
+    for(let QuestionIn = 0; QuestionIn <= lastQuestion; QuestionIn++){
+        progress.innerHTML += "<div class='pro' id="+ QuestionIn +"></div>";
+    }
+}
+
+
+function renderQuest(){
+    if(count <= timeRemaining){
+        counter.innerHTML = count;
+        timeRun = count * Unit;
+        count++
+    }else{
+        count = 0;
+        if(runningQuestion < lastQuestion){
+            runningQuestion++;
+            renderQuestion();
+        }else{
+            clearInterval(TIMER);
+            scoreRender();
+        }
+    }
+}
+
+function checkAnswer(answer){
+    if( answer == questions[runningQuestion].correct){
+        score++;
+        correctAns();
+    }
+    else{
+    function wrongAns(){}
+    }
+    count = 0;
+    if(runningQuestion < lastQuestion){
+        runningQuestion++;
+        renderQuestion();
+    }else{
+        clearInterval(TIMER);
+        scoreRender();
+    }
+}
+
+play.addEventListener("click",startQuiz);
+
+
+function startQuiz(){
     renderQuestion();
     game.style.display = "block";
     renderProgress();
@@ -62,7 +114,7 @@ function startQuiz(){
 
 function renderProgress(){
     for(let QuestionIn = 0; QuestionIn <= lastQuestion; QuestionIn++){
-        progress.innerHTML += "<div class='prog' id="+ QuestionIn +"></div>";
+        progress.innerHTML += "<div class='pro' id="+ QuestionIn +"></div>";
     }
 }
 
@@ -108,14 +160,8 @@ function checkAnswer(answer){
 
 function scoreRender(){
     scoreResult.style.display = "block";
-    const Percent = Math.round(100 * score/questions.length);
-    let Image = (Percent >= 80) ? +"<img src= Image/well.jpg >":              
-                (Percent >= 60)  ? +"<img src=Image/good.jpg >":              
-                (Percent >= 40)  ? +"<img src=Image/help.jpg >":              
-                (Percent >= 20)  ? + "<img src=Image/sorry.jpg":
-              Image/well.jpg;    
-    scoreResult.innerHTML += "<p>"+ Percent + "%" + Image + "</p>";
+    const Percent = Math.round(100 * score/questions.length);               
+    scoreResult.innerHTML += "<h6>Your Score:<h6>" + "<h5>"+ Percent + "%" + "</h5>";
 }
-
 
 
